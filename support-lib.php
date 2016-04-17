@@ -7,6 +7,7 @@ if(
 	!function_exists("mysql_fetch_array") &&
 	!function_exists("mysql_fetch_assoc") &&
 	!function_exists("mysql_escape_string") &&
+	!function_exists("mysql_real_escape_string") &&
 	!function_exists("mysql_num_rows"))
 {
 	$_host 	= "";
@@ -52,6 +53,10 @@ if(
 
 		$string = str_replace(array('%', '_'), array('\\%', '\\_'), $string);
 		return $string;
+	}
+
+	function mysql_escape_string($string){
+		return mysql_escape_string($string);
 	}
 
 	function mysql_num_rows($result){

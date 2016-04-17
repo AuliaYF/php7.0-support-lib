@@ -12,4 +12,5 @@ Usage
 - ```mysql_fetch_array($result)```
 - ```mysql_fetch_assoc($result)```
 - ```mysql_escape_string($string)```
+- ```mysql_real_escape_string($string)```
 - ```mysql_num_rows($result)```
