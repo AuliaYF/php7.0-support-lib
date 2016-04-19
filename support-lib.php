@@ -55,7 +55,7 @@ if(
 		return $string;
 	}
 
-	function mysql_escape_string($string){
+	function mysql_real_escape_string($string){
 		return mysql_escape_string($string);
 	}
 
