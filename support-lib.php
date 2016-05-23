@@ -51,7 +51,7 @@ if(
 	function mysql_escape_string($string){
 		$string = addslashes($string);
 
-		$string = str_replace(array('%', '_'), array('\\%', '\\_'), $string);
+		// $string = str_replace(array('%', '_'), array('\\%', '\\_'), $string);
 		return $string;
 	}
 
