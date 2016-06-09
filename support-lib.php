@@ -7,7 +7,6 @@ if(
 	!function_exists("mysql_fetch_array") &&
 	!function_exists("mysql_fetch_assoc") &&
 	!function_exists("mysql_escape_string") &&
-	!function_exists("mysql_real_escape_string") &&
 	!function_exists("mysql_num_rows"))
 {
 	$_host 	= "";
@@ -55,12 +54,23 @@ if(
 		return $string;
 	}
 
-	function mysql_real_escape_string($string){
-		return mysql_escape_string($string);
-	}
-
 	function mysql_num_rows($result){
 		return $result->num_rows;
 	}
+}
+
+if(!function_exists("escapeString")){
+	function escapeString($key, $arr){	
+		if(!is_array($result)) $result = array();
+		$arr = empty($key) ? $_POST : $arr[$key];
+		if(is_array($arr)){
+			while(list($id, $val) = each($arr)){
+				$result[$id] = is_array($val) ? escapeString($id, $arr) : mysql_escape_string($val);
+			}
+		}	
+		return $result;
+	}
+
+	$_POST = escapeString();
 }
 ?>

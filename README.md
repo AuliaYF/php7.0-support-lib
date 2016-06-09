@@ -14,3 +14,4 @@ Usage
 - ```mysql_escape_string($string)```
 - ```mysql_real_escape_string($string)```
 - ```mysql_num_rows($result)```
+- ```escapeString($key, $arr)```
